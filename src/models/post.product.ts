@@ -3,14 +3,19 @@ import { InputProduct, Product } from '../types/post.product';
 import connection from './connection';
 
 async function insertProduct(value: InputProduct): Promise<Product> {
-  const [newProduct] = await connection
+  const [{ insertId }] = await connection
     .execute<ResultSetHeader>(
-    'INSERT INTO products(name, amount) VALUES (?, ?)',
+    'INSERT INTO Trybesmith.products(name, amount) VALUES (?, ?)',
     [value.name, value.amount],
   );
-  return newProduct as unknown as Product;
+  const valueInsert = {
+    id: insertId,
+    name: value.name,
+    amount: value.amount,
+  };
+  return valueInsert as unknown as Product;
 }
 
-export default {
+export {
   insertProduct,
 };

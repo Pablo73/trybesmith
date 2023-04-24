@@ -1,5 +1,5 @@
-import postProduct from './post.product';
+import { insertProduct } from './post.product';
 
-export default {
-  postProduct,
+export {
+  insertProduct,
 };
