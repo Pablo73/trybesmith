@@ -1,5 +1,6 @@
-import { insertProduct } from './post.product';
+import { insertProduct, getAllProduct } from './post.product';
 
 export {
   insertProduct,
+  getAllProduct,
 };

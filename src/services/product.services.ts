@@ -1,4 +1,7 @@
-import { insertProduct as postProduct } from '../models';
+import { 
+  insertProduct as postProduct,
+  getAllProduct as allProduct,
+} from '../models';
 import { InputProduct } from '../types/post.product';
 
 async function insertProduct(value: InputProduct) {
@@ -6,6 +9,12 @@ async function insertProduct(value: InputProduct) {
   return products;
 }
 
+async function getAllProduct() {
+  const products = await allProduct();
+  return products;
+}
+
 export default {
   insertProduct,
+  getAllProduct,
 };
