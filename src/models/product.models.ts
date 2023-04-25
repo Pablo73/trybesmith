@@ -1,4 +1,5 @@
 import ResultSetHeader from 'mysql2/typings/mysql/lib/protocol/packets/ResultSetHeader';
+import RowDataPacket from 'mysql2/typings/mysql/lib/protocol/packets/RowDataPacket';
 import { InputProduct, Product } from '../types/post.product';
 import { AllProduct } from '../types/get.product';
 import connection from './connection';
@@ -18,7 +19,7 @@ async function insertProduct(value: InputProduct): Promise<Product> {
 }
 
 async function getAllProduct(): Promise<AllProduct> {
-  const [getProduct] = await connection.execute<ResultSetHeader>(
+  const [getProduct] = await connection.execute<RowDataPacket[]>(
     'SELECT * from Trybesmith.products',
   );
   return getProduct as unknown as AllProduct;

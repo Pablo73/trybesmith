@@ -1,4 +1,4 @@
-import { insertProduct, getAllProduct } from './post.product';
+import { insertProduct, getAllProduct } from './product.models';
 
 export {
   insertProduct,
