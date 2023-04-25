@@ -2,7 +2,7 @@ import ResultSetHeader from 'mysql2/typings/mysql/lib/protocol/packets/ResultSet
 import { Users, NewUsers } from '../types/users.type';
 import connection from './connection';
 
-async function getAllProduct(value: Users): Promise<NewUsers> {
+async function insertNewUser(value: Users): Promise<NewUsers> {
   const [{ insertId }] = await connection.execute<ResultSetHeader>(
     'INSERT INTO Trybesmith.users(username, vocation, level, password) VALUES (?, ?, ?, ?)',
     [value.username, value.vocation, value.level, value.password],
@@ -18,5 +18,5 @@ async function getAllProduct(value: Users): Promise<NewUsers> {
 }
 
 export default {
-  getAllProduct,
+  insertNewUser,
 };

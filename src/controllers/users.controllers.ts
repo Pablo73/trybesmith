@@ -3,7 +3,6 @@ import usersServices from '../services/users.services';
 
 async function insertUser(req: Request, res: Response) {
   const { body } = req;
-  console.log(body);
   const user = await usersServices.insertUser(body);
   return res.status(201).json({ token: user });
 }

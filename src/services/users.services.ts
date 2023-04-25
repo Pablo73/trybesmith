@@ -3,7 +3,7 @@ import { Users } from '../types/users.type';
 import authToke from '../utils/auth';
 
 async function insertUser(value: Users): Promise<string> {
-  const user = await usersModels.getAllProduct(value);
+  const user = await usersModels.insertNewUser(value);
   if (!user || user.password !== value.password) {
     throw new Error('UNAUTHORIZED');
   }
