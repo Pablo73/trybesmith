@@ -4,7 +4,7 @@ import authToke from '../utils/auth';
 
 async function insertUser(value: Users): Promise<string> {
   const user = await usersModels.insertNewUser(value);
-  const token = await authToke.generateToke({
+  const token = authToke.generateToke({
     id: user.id,
     username: user.username,
     vocation: user.vocation,

@@ -7,7 +7,7 @@ async function validationUser(value: Login): Promise<string> {
   if (!user) {
     throw new Error('Username or password invalid');
   }
-  const token = await authToke.generateToke({
+  const token = authToke.generateToke({
     id: user[0].id,
     username: user[0].username,
     vocation: user[0].vocation,
