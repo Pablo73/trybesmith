@@ -11,4 +11,6 @@ export type NewUsers = {
   vocation: string
   level: number;
   password: string;
+  iat?: number,
+  exp?: number,
 };

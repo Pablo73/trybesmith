@@ -3,10 +3,10 @@ export type Login = {
   password: string;
 };
 
-export type User = { 
+export type User = [{ 
   id: number,
   username: string;
   vocation: string
   level: number;
   password: string;
-};
+}];

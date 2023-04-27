@@ -1,22 +1,30 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { NewUsers } from '../types/users.type';
 
-const secretKey = 'secret';
+const secretKey = process.env.JWT_SECRET || 'secret';
 
-async function generateToke(payload: NewUsers): Promise<string> {
-  const token = jwt.sign(payload, secretKey, {
-    expiresIn: '8d',
-    algorithm: 'HS256',
-  });
+const configJWT = {
+  expiresIn: '8d',
+  algorithm: 'HS256',
+} as SignOptions;
+
+function generateToke(payload: NewUsers): string {
+  const token = jwt.sign(payload, secretKey, configJWT);
   return token as unknown as string;
 }
 
-async function validateToken(token: string): Promise<NewUsers> {
+function validateToken(token: string): NewUsers {
   const valid = jwt.verify(token, secretKey);
-  return valid as NewUsers;
+  return valid as unknown as NewUsers;
+}
+
+function decoderToken(token: string): NewUsers {
+  const valid = jwt.decode(token);
+  return valid as unknown as NewUsers;
 }
 
 export default {
   generateToke,
   validateToken,
+  decoderToken,
 };
