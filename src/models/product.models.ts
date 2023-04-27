@@ -18,11 +18,11 @@ async function insertProduct(value: InputProduct): Promise<Product> {
   return valueInsert as unknown as Product;
 }
 
-async function getAllProduct(): Promise<AllProduct> {
+async function getAllProduct(): Promise<AllProduct[]> {
   const [getProduct] = await connection.execute<RowDataPacket[]>(
     'SELECT * from Trybesmith.products',
   );
-  return getProduct as unknown as AllProduct;
+  return getProduct as AllProduct[];
 }
 
 export {

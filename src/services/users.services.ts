@@ -11,7 +11,7 @@ async function insertUser(value: Users): Promise<string> {
     level: user.level,
     password: '',
   });
-  return token as unknown as string;
+  return token as string;
 }
 
 export default {

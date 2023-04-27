@@ -14,7 +14,7 @@ async function insertNewUser(value: Users): Promise<NewUsers> {
     level: value.level,
     password: value.password,
   };
-  return newUser as unknown as NewUsers;
+  return newUser as NewUsers;
 }
 
 export default {

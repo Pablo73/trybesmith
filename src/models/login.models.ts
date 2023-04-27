@@ -10,7 +10,7 @@ async function getUser(value: Login): Promise<User | null> {
   if (user.length === 0) {
     return null;
   }
-  return user as unknown as User;
+  return user as User;
 }
   
 export default {

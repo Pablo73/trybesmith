@@ -9,7 +9,7 @@ async function getOrders(): Promise<Orders[]> {
 
 async function ordersInsert(idUser: NewUsers, products: Array<number>): Promise<NewOrder> {
   const product = await ordersModules.insertNewOrders(idUser.id, products);
-  return product as unknown as NewOrder;
+  return product as NewOrder;
 }
 
 export default {
